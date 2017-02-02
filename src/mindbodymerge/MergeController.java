@@ -67,25 +67,42 @@ public class MergeController implements Initializable {
         File sales = new File(purchaseData.getText());
         File membership = new File(studentData.getText());
         String sCode = semesterCode.getText();
+        if (sCode.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error");
+            alert.setContentText("Please enter a semester code.");
+            alert.showAndWait();
+            return;
+        }
         
         Parser parse = new Parser(sales, membership, sCode);
-        ArrayList<String> compiledList = parse.handleParsing();
-        //System.out.println(compiledList.size());
-        //System.out.println(compiledList);
+        ArrayList<String> compiledList = null;
         
-        parse.saveFile(compiledList, stage, "Saving the Good List");
-        parse.saveFile(parse.getConflictList(), stage, "Saving the Conflict List");
-        
-        //clearing the text fields
-        purchaseData.clear();
-        studentData.clear();
-        semesterCode.clear();
-        
-        //showing completion window
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText("Merge Complete");
-        alert.setContentText("The files have been merged. There were " + compiledList.size() + " good records, and " + parse.getConflictList().size() + " conflicts that need to be resolved.");
-        alert.showAndWait();
+        try {
+            compiledList = parse.handleParsing();
+            //System.out.println(compiledList.size());
+            //System.out.println(compiledList);
+
+            parse.saveFile(compiledList, stage, "Saving the Good List");
+            parse.saveFile(parse.getConflictList(), stage, "Saving the Conflict List");
+
+            //clearing the text fields
+            purchaseData.clear();
+            studentData.clear();
+            semesterCode.clear();
+
+            //showing completion window
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Merge Complete");
+            alert.setContentText("The files have been merged. There were " + compiledList.size() + " good records, and " + parse.getConflictList().size() + " conflicts that need to be resolved.");
+            alert.showAndWait();
+        }            
+        catch (IllegalStateException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error");
+            alert.setContentText("Please check input files." + e);
+            alert.showAndWait();
+        }
     }
     
     @FXML
