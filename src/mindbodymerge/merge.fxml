@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mindbodymerge.MergeController">
+   <children>
+      <TextField fx:id="purchaseData" layoutX="58.0" layoutY="110.0" onAction="#handlePurchaseBrowse" />
+      <TextField fx:id="studentData" layoutX="353.0" layoutY="110.0" />
+      <TextField fx:id="semesterCode" layoutX="226.0" layoutY="210.0" />
+      <Button layoutX="213.0" layoutY="110.0" mnemonicParsing="false" onAction="#handlePurchaseBrowse" text="Browse" />
+      <Button layoutX="512.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleStudentBrowse" text="Browse" />
+      <Button layoutX="274.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleMerge" text="Merge" />
+      <Label layoutX="58.0" layoutY="87.0" text="Purchase Data:" />
+      <Label layoutX="353.0" layoutY="87.0" text="Student Data:" />
+      <Label layoutX="140.0" layoutY="214.0" text="Semester Code:" />
+      <MenuBar layoutX="-3.0" layoutY="2.0" prefHeight="25.0" prefWidth="606.0">
+        <menus>
+          <Menu mnemonicParsing="false" onAction="#handleSwitchMyZou" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Manage MyZou Item Type" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

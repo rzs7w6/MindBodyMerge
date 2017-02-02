@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mindbodymerge.MyZouItemsController">
+   <children>
+      <ListView fx:id="list" layoutX="14.0" layoutY="48.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="description" layoutX="270.0" layoutY="68.0" />
+      <TextField fx:id="itemNum" layoutX="438.0" layoutY="68.0" />
+      <Label layoutX="270.0" layoutY="48.0" text="Description:" />
+      <Label layoutX="438.0" layoutY="48.0" text="MyZou Item Type:" />
+      <Button layoutX="220.0" layoutY="68.0" mnemonicParsing="false" onAction="#handleAddMocode" text="Add" />
+      <Button layoutX="51.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleDelete" text="Delete Selected Item" />
+      <Button fx:id="back" layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleReturn" text="Return" />
+      <Label layoutX="223.0" layoutY="127.0" text="Add an alias for an item type:" />
+      <TextField fx:id="newAlias" layoutX="223.0" layoutY="148.0" />
+      <Label fx:id="aliasDescription" layoutX="388.0" layoutY="127.0" text="Current aliases for: (SELECT AN ITEM)" />
+      <ComboBox fx:id="aliasList" layoutX="388.0" layoutY="148.0" onMouseClicked="#handleViewAlias" prefWidth="150.0" />
+      <Button layoutX="223.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleAddAlias" text="Add Alias" />
+   </children>
+</AnchorPane>
