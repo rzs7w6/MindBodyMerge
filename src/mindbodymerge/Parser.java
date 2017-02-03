@@ -140,13 +140,12 @@ public class Parser {
                         mocode = db.getMocode(cell.getStringCellValue());
                         myzouItemList.add(mocode);
                     }
-                    //The 12th column (column ?) holds the list of amount paid for the items
-                    //Make sure that you choose the column that holds the actual amount paid (e.g. the row with negative numbers showing credit charges)
+                    //The 17th column (column Q) holds the list of amount paid for the items with tax
+                    //Make sure that you choose the column that holds the actual amount paid (e.g. the row with negative numbers showing credit charges and tax)
                     //number is taken in as a double, and formatted as a string to be added
-                    //This might only work if the sales amount is an even number (i.e. $15.00 not $15.15), or this might have to change... who knows
-                    else if (iterationCount == 11) {
+                    else if (iterationCount == 16) {
                         itemNumber = cell.getNumericCellValue();
-                        itemString = String.format("%.0f", itemNumber);
+                        itemString = String.format("%.2f", itemNumber);
                         itemPriceList.add(itemString);
                     }
 
@@ -268,7 +267,7 @@ public class Parser {
     }
     
     /**
-     * Put the prices into the correct format which is <xxxxxx.00>
+     * Put the prices into the correct format which is <xxxxxx.xx>
      * Going from right to left, the first digits are the price so if they paid 15.00 it will be <xxxx15.00>
      * After that, if it is a credit charge like -15.00 then it will look like <xxx-15.00>. This is handled automatically so far *crosses fingers*
      * The rest of the x are replaced by 0's so <000015.00> or <000-15.00>
@@ -290,7 +289,7 @@ public class Parser {
         int length;
         
         //number of digits left of the decimal place i.e. xxxxxx.00 the x's
-        int zeroLength = 6;
+        int zeroLength = 9;
         
         //Loop through
         for (i = 0; i < itemPriceList.size(); i++) {
@@ -303,9 +302,6 @@ public class Parser {
             //Add the item price so the string looks like 000015 or 000-15 or 000150 depending on charge
             item = item.concat(itemPriceList.get(i));
             
-            //Add the trailing decimal points to make it 000015.00, if there ever arises a case in which the number is not whole, this logic will have to be changed
-            item = item.concat(".00");
-            
             //Replace the item with the correctly formatted string
             itemPriceList.set(i, item);
             
@@ -313,7 +309,7 @@ public class Parser {
             item = "";
         }
         //Test block
-//        System.out.println(itemPriceList);
+        System.out.println(itemPriceList);
     }
     
     /**
