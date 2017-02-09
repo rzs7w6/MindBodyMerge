@@ -1,0 +1,28 @@
+.textInput {
+    -fx-background-color: black;       
+    -fx-background-radius: 10px;
+    
+    -fx-border-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-border-color: rgb(241, 184, 45);
+        
+    -fx-text-fill: #d1cdcd;
+    
+}
+
+.background {
+    -fx-background-color: rgb(136, 136, 136);
+}
+
+.menuBar {
+    -fx-background-color: black;
+    
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: rgb(241, 184, 45);
+    
+    -fx-text-fill: #d1cdcd;
+}
+
+.menuItem {
+    -fx-text-fill: #d1cdcd;
+}

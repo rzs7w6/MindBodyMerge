@@ -299,6 +299,11 @@ public class Parser {
             for (j = 0; j < zeroLength - length; j++) {
                 item += "0";
             }
+            if (itemPriceList.get(i).charAt(0) == '-') {
+                itemPriceList.set(i, itemPriceList.get(i).replace('-', '0'));
+                item = item.replaceFirst("0", "-");
+            }
+            
             //Add the item price so the string looks like 000015 or 000-15 or 000150 depending on charge
             item = item.concat(itemPriceList.get(i));
             
