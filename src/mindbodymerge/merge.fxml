@@ -6,22 +6,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@mergeStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mindbodymerge.MergeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@mergeStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mindbodymerge.MergeController">
    <children>
-      <TextField fx:id="purchaseData" layoutX="58.0" layoutY="110.0" onAction="#handlePurchaseBrowse" stylesheets="@mergeStyle.css" />
-      <TextField fx:id="studentData" layoutX="353.0" layoutY="110.0" stylesheets="@mergeStyle.css" />
-      <TextField fx:id="semesterCode" layoutX="226.0" layoutY="210.0" stylesheets="@mergeStyle.css" />
-      <Button layoutX="213.0" layoutY="110.0" mnemonicParsing="false" onAction="#handlePurchaseBrowse" text="Browse" />
-      <Button layoutX="512.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleStudentBrowse" text="Browse" />
-      <Button layoutX="274.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleMerge" text="Merge" />
-      <Label layoutX="58.0" layoutY="87.0" text="Purchase Data:" />
-      <Label layoutX="353.0" layoutY="87.0" text="Student Data:" />
-      <Label layoutX="140.0" layoutY="214.0" text="Semester Code:" />
-      <MenuBar layoutX="-3.0" layoutY="2.0" prefHeight="25.0" prefWidth="606.0" stylesheets="@mergeStyle.css">
+      <TextField fx:id="purchaseData" layoutX="54.0" layoutY="108.0" onAction="#handlePurchaseBrowse" styleClass="textInput" stylesheets="@mergeStyle.css" />
+      <TextField fx:id="studentData" layoutX="353.0" layoutY="110.0" styleClass="textInput" stylesheets="@mergeStyle.css" />
+      <TextField fx:id="semesterCode" layoutX="226.0" layoutY="210.0" styleClass="textInput" stylesheets="@mergeStyle.css" />
+      <Button layoutX="213.0" layoutY="110.0" mnemonicParsing="false" onAction="#handlePurchaseBrowse" styleClass="text" text="BROWSE" />
+      <Button layoutX="509.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleStudentBrowse" text="BROWSE" />
+      <Button layoutX="274.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleMerge" text="MERGE" />
+      <Label layoutX="54.0" layoutY="87.0" text="PURCHASE DATA:" />
+      <Label layoutX="352.0" layoutY="89.0" text="STUDENT DATA:" />
+      <Label layoutX="124.0" layoutY="214.0" text="SEMESTER CODE:" />
+      <MenuBar layoutX="-3.0" layoutY="2.0" prefHeight="25.0" prefWidth="606.0" styleClass="menuBar" stylesheets="@mergeStyle.css">
         <menus>
-          <Menu mnemonicParsing="false" onAction="#handleSwitchMyZou" text="File">
+          <Menu mnemonicParsing="false" onAction="#handleSwitchMyZou" styleClass="menuItem" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Manage MyZou Item Type" />
+              <MenuItem mnemonicParsing="false" style="-fx-text-fill: black;" text="Manage MyZou Item Type" />
             </items>
           </Menu>
         </menus>
