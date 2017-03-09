@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="MindBodyMerge.jar" size="17701" download="eager" />
+    <jar href="MindBodyMerge.jar" size="17715" download="eager" />
     <jar href="lib\commons-codec-1.9.jar" size="263965" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.39.jar" size="989495" download="eager" />
     <jar href="lib\poi-3.11-beta2.jar" size="2054958" download="eager" />
