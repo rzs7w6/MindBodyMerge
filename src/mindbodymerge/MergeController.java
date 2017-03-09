@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -71,6 +72,9 @@ public class MergeController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Error");
             alert.setContentText("Please enter a semester code.");
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("mergeStyle.css").toExternalForm());
             alert.showAndWait();
             return;
         }
@@ -95,13 +99,19 @@ public class MergeController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Merge Complete");
             alert.setContentText("The files have been merged. There were " + compiledList.size() + " good records, and " + parse.getConflictList().size() + " conflicts that need to be resolved.");
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("mergeStyle.css").toExternalForm());
             alert.showAndWait();
         }            
         catch (IllegalStateException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Error");
             alert.setContentText("Please check input files." + e);
-            alert.showAndWait();
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("mergeStyle.css").toExternalForm());
+            
         }
     }
     

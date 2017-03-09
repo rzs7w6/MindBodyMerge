@@ -57,3 +57,20 @@
     -fx-background-color: white;
     -fx-text-fill: rgb(55, 55, 55);
 }
+
+.dialog-pane {
+    -fx-background-color: black;
+}
+
+.dialog-pane{
+    -fx-text-fill: white;
+}
+
+.dialog-pane:header .header-panel {
+    -fx-background-color: rgb(55,55,55);
+}
+
+.dialog-pane:header .header-panel {
+    -fx-font-style: italic;
+    -fx-font-size: 2em;
+}
