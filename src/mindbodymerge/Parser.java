@@ -269,8 +269,8 @@ public class Parser {
     /**
      * Put the prices into the correct format which is <xxxxxx.xx>
      * Going from right to left, the first digits are the price so if they paid 15.00 it will be <xxxx15.00>
-     * After that, if it is a credit charge like -15.00 then handle it so that it will look like <-xxx15.00>.
-     * The rest of the x are replaced by 0's so <000015.00> or <-00015.00>
+     * After that, if it is a credit charge like -15.00 then it will look like <xxx-15.00>. This is handled automatically so far *crosses fingers*
+     * The rest of the x are replaced by 0's so <000015.00> or <000-15.00>
      * 
      * @param itemPriceList : list of prices to be correctly formatted
      */
@@ -299,7 +299,6 @@ public class Parser {
             for (j = 0; j < zeroLength - length; j++) {
                 item += "0";
             }
-            //Check for a credit charge.  If it is, add the '-' in place of the first 0 in String item, and replace the '-' in the list with '0'
             if (itemPriceList.get(i).charAt(0) == '-') {
                 itemPriceList.set(i, itemPriceList.get(i).replace('-', '0'));
                 item = item.replaceFirst("0", "-");
